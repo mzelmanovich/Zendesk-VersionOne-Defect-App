@@ -6,6 +6,7 @@ Zendesk App To Get Values of Defects and User Stories based on value of custom t
 - [Settings](https://github.com/mzelmanovich/Zendesk-VersionOne-Defect-App#settings)
 - [Screenshots](https://github.com/mzelmanovich/Zendesk-VersionOne-Defect-App#screenshots)
 - [Statuses](https://github.com/mzelmanovich/Zendesk-VersionOne-Defect-App#statues)
+- [ToDo](https://github.com/mzelmanovich/Zendesk-VersionOne-Defect-App#todo)
 
 ## Install
 Install by using Zendesk's [ZAT tool](https://developer.zendesk.com/apps/docs/agent/tools) to package app and upload. Steps are provided in Zendesk's *[Building Your First Zendesk App](https://support.zendesk.com/hc/en-us/articles/203691296)* tutorial.
