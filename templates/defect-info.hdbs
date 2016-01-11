@@ -1,0 +1,23 @@
+{{#if userStory}}
+<div>
+  <table class="table-condensed">
+    <tbody>
+      <tr class="_tooltip">
+        <td><h5>{{userStory.Number.value}}:</h5></td>
+        <td class="ticket_status"><span class="ticket_status_label toolbar {{userStory.css}}">{{userStory.[Status.Name].value}}</span></td>
+      </tr>
+      <tr>
+
+        <td><a target="_blank" href="{{setting 'baseURL'}}/Search.mvc/Advanced?q={{userStory.Number.value}}">{{userStory.Name.value}}</a></td>
+      </tr>
+      {{#if userStory.[Timebox.Name].value}}
+      <tr>
+        <td><b>{{userStory.[Timebox.Name].value}}</b></td>
+      </tr>
+      {{/if}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+<P>Currently this ticket Does Not Have a User Story</p>
+  {{/if}}

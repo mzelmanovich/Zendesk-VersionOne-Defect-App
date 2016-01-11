@@ -1,0 +1,41 @@
+{
+  "name": "Version One Defect Tracker",
+  "author": {
+    "name": "Mitchell Zelmanovich",
+    "email": "mzelmanovich@gmail.com",
+    "url": "http://github.com/mzelmanovich"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": "ticket_sidebar",
+  "version": "1.0",
+  "frameworkVersion": "1.0",
+  "parameters": [
+    {
+      "name": "appName",
+      "type": "text",
+      "required": true,
+      "default": "Version One Defect app",
+      "label":"App Name",
+      "helpText":"Display Name of Application in Side Bar"
+    },
+    {
+      "name": "apiToken",
+      "type": "text",
+      "required": true,
+      "label":"API token"
+    },
+    {
+      "name": "baseURL",
+      "type": "text",
+      "required": true,
+      "label":"Server URL"
+    },
+    {
+      "name": "defectFeild",
+      "type": "number",
+      "required": true,
+      "label":"ID of Zendesk Feild used to Link to V1"
+    }
+  ]
+}
