@@ -8,7 +8,7 @@
   "defaultLocale": "en",
   "private": true,
   "location": "ticket_sidebar",
-  "version": "1.0",
+  "version": "2.0",
   "frameworkVersion": "1.0",
   "parameters": [
     {
@@ -36,6 +36,24 @@
       "type": "number",
       "required": true,
       "label":"ID of Zendesk Feild used to Link to V1"
+    },
+      {
+      "name": "statusFeild",
+      "type": "number",
+      "required": true,
+      "label":"ID of Zendesk Feild used to Place the Defect Status"
+    },
+       {
+      "name": "releaseFeild",
+      "type": "number",
+      "required": true,
+      "label":"ID of Zendesk Feild used to the Defect Status Release"
+    },
+           {
+      "name": "clientSeverity",
+      "type": "number",
+      "required": true,
+      "label":"ID of Zendesk Feild used for the Client Serverity"
     }
   ]
 }
