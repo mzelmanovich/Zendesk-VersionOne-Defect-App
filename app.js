@@ -17,12 +17,12 @@
             },
             updateTicket: function (data) {
                 return {
-                    url: '/api/v2/tickets/'+ this.ticket().id() + '.json',
+                    url: '/api/v2/tickets/' + this.ticket().id() + '.json',
                     type: 'PUT',
                     dataType: 'json',
                     contentType: 'application/json',
                     data: JSON.stringify(data),
-                     proxy_v2: true                    
+                    proxy_v2: true
                 };
             },
         },
@@ -53,16 +53,48 @@
     
         //function to hide feilds from ticket view
         hideFeilds: function () {
-            this.ticketFields('custom_field_' + this.settings.statusFeild + '').hide();
-            this.ticketFields('custom_field_' + this.settings.releaseFeild + '').hide();
-            this.ticketFields('custom_field_' + this.settings.clientSeverity + '').hide();
+            var feilds = this.getStoryFeilds();
+            for (var index in feilds) {
+                if (this.ticketFields('custom_field_' + feilds[index] + '')) {
+                    this.ticketFields('custom_field_' + feilds[index] + '').hide();
+                }
+            }
+        },
+
+        getStoryFeilds: function () {
+            return [this.settings.statusFeild, this.settings.releaseFeild, this.settings.clientSeverity]
         },
     
         // function to update feilds on ticket
         updateTicketWithV1: function (userStory) {
-         var updateInfo = {ticket:{status:"open"}}
-         this.ajax('updateTicket', updateInfo).done(function (data) {
-                console.log(data);
+            var updateInfo = {
+                ticket: {
+                    custom_fields: []
+                }
+            }
+
+            var feilds = this.getStoryFeilds();
+
+            for (var index in feilds) {
+                var tempObj = { id: feilds[index] }
+                if (index == 0) {
+                    tempObj.value = userStory['Status.Name'].value;
+                    updateInfo.ticket.custom_fields.push(tempObj);
+                }
+                if (index == 1) {
+                    tempObj.value = userStory['Timebox.Name'].value;
+                    updateInfo.ticket.custom_fields.push(tempObj);
+                }
+                if (index == 2) {
+                    tempObj.value = userStory['Custom_ClientSeverity.Name'].value;
+                    updateInfo.ticket.custom_fields.push(tempObj);
+                }
+
+            }
+
+            console.log(updateInfo);
+            this.ajax('updateTicket', updateInfo).done(function (data) {
+
             });
         },
 
