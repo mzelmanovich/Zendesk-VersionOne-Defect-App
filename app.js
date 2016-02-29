@@ -17,11 +17,12 @@
             },
             updateTicket: function (data) {
                 return {
-                    url: '/api/v2/tickets/'+ this.ticket().id() +'.json',
+                    url: '/api/v2/tickets/'+ this.ticket().id() + '.json',
                     type: 'PUT',
                     dataType: 'json',
                     contentType: 'application/json',
-                    data: JSON.stringify(data)
+                    data: JSON.stringify(data),
+                     proxy_v2: true                    
                 };
             },
         },
@@ -59,7 +60,7 @@
     
         // function to update feilds on ticket
         updateTicketWithV1: function (userStory) {
-         var updateInfo = {ticket:{stats:"open"}}
+         var updateInfo = {ticket:{status:"open"}}
          this.ajax('updateTicket', updateInfo).done(function (data) {
                 console.log(data);
             });
