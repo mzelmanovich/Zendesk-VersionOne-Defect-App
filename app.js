@@ -28,7 +28,7 @@
         },
 
         showDefect: function () {
-            this.hideFeilds();
+            this.hideFields();
             var v1Number = this.ticket().customField('custom_field_' + this.setting('defectFeild') + '');
             var type = null;
             if (!v1Number) {
@@ -52,20 +52,20 @@
         },
     
         //function to hide feilds from ticket view
-        hideFeilds: function () {
-            var feilds = this.getStoryFeilds();
-            for (var index in feilds) {
-                if (this.ticketFields('custom_field_' + feilds[index] + '')) {
-                    this.ticketFields('custom_field_' + feilds[index] + '').hide();
+        hideFields: function () {
+            var fields = this.getStoryFields();
+            for (var index in fields) {
+                if (this.ticketFields('custom_field_' + fields[index] + '')) {
+                    this.ticketFields('custom_field_' + fields[index] + '').hide();
                 }
             }
         },
 
-        getStoryFeilds: function () {
+        getStoryFields: function () {
             return [this.settings.statusFeild, this.settings.releaseFeild, this.settings.clientSeverity]
         },
     
-        // function to update feilds on ticket
+        // function to update fields on ticket
         updateTicketWithV1: function (userStory) {
             var updateInfo = {
                 ticket: {
@@ -73,10 +73,10 @@
                 }
             }
 
-            var feilds = this.getStoryFeilds();
+            var fields = this.getStoryFields();
 
-            for (var index in feilds) {
-                var tempObj = { id: feilds[index] }
+            for (var index in fields) {
+                var tempObj = { id: fields[index] }
                 if (index == 0) {
                     tempObj.value = userStory['Status.Name'].value;
                     updateInfo.ticket.custom_fields.push(tempObj);
@@ -91,11 +91,11 @@
                 }
 
             }
-
-            console.log(updateInfo);
+            if(updateInfo.ticket.custom_fields.length>0){
             this.ajax('updateTicket', updateInfo).done(function (data) {
 
             });
+            }
         },
 
         // function to translate values for V1 and apply proper CSS.
