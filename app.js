@@ -20,6 +20,7 @@
                     url: '/api/v2/tickets/'+ this.ticket().id() +'.json',
                     type: 'PUT',
                     dataType: 'json',
+                    contentType: 'application/json',
                     data: JSON.stringify(data)
                 };
             },
