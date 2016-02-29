@@ -62,7 +62,7 @@
         },
 
         getStoryFields: function () {
-            return [this.settings.statusFeild, this.settings.releaseFeild, this.settings.clientSeverity]
+            return [this.settings.statusFeild, this.settings.releaseFeild, this.settings.clientSeverity];
         },
     
         // function to update fields on ticket
@@ -71,13 +71,13 @@
                 ticket: {
                     custom_fields: []
                 }
-            }
+            };
 
             var fields = this.getStoryFields();
 
             for (var index in fields) {
-                var tempObj = { id: fields[index] }
-                if (index == 0) {
+                var tempObj = { id: fields[index] };
+                if (index === 0) {
                     tempObj.value = userStory['Status.Name'].value;
                     updateInfo.ticket.custom_fields.push(tempObj);
                 }
@@ -117,15 +117,15 @@
             };
 
             if (userStory['Custom_ClientSeverity.Name'].value == 3) {
-                userStory.sevCss = 'open'
+                userStory.sevCss = 'open';
             }
 
             if (userStory['Custom_ClientSeverity.Name'].value == 2) {
-                userStory.sevCss = 'new'
+                userStory.sevCss = 'new';
             }
 
             if (userStory['Custom_ClientSeverity.Name'].value == 1) {
-                userStory.sevCss = 'pending'
+                userStory.sevCss = 'pending';
             }
 
             if (!userStory['Status.Name'].value) {
