@@ -3,7 +3,7 @@
   <table class="table-condensed">
     <tbody>
       <tr class="_tooltip">
-        <td width="80%"><h5>{{userStory.Number.value}}:</h5></td>
+        <td width="70%"><h5>{{userStory.Number.value}}:</h5></td>
         <td class="ticket_status"><span class="ticket_status_label toolbar {{userStory.css}}">{{userStory.[Status.Name].value}}</span></td>
       </tr>
           </tbody>
