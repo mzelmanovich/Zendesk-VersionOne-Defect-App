@@ -140,10 +140,6 @@
                 userStory.css = 'Open';
                 userStory['Status.Name'].value = 'Released';
             }
-            if (userStory['Status.Name'].value == 'In Progress') {
-                userStory['Status.Name'].value = 'Active';
-            }
-
             return userStory;
         }
     };
