@@ -45,7 +45,7 @@
                     .then(function (resp) {
                         var userStory = resp.Assets[0].Attributes;
                         var translatedUS = this.translateValues(userStory);
-                        this.updateTicketWithV1(translatedUS);
+                                    this.updateTicketWithV1(translatedUS);
                         this.switchTo('defect-info', { userStory: translatedUS });
                     });
             }
@@ -77,23 +77,22 @@
 
             for (var index in fields) {
                 var tempObj = { id: fields[index] };
-                if (index === 0) {
+                if (index < 1) {
                     tempObj.value = userStory['Status.Name'].value;
-                    updateInfo.ticket.custom_fields.push(tempObj);
+                      updateInfo.ticket.custom_fields.push(tempObj);
                 }
                 if (index == 1) {
                     tempObj.value = userStory['Timebox.Name'].value;
-                    updateInfo.ticket.custom_fields.push(tempObj);
+                      updateInfo.ticket.custom_fields.push(tempObj);
                 }
                 if (index == 2) {
                     tempObj.value = userStory['Custom_ClientSeverity.Name'].value;
-                    updateInfo.ticket.custom_fields.push(tempObj);
+                      updateInfo.ticket.custom_fields.push(tempObj);
                 }
 
             }
             if(updateInfo.ticket.custom_fields.length>0){
             this.ajax('updateTicket', updateInfo).done(function (data) {
-
             });
             }
         },
@@ -144,6 +143,7 @@
             if (userStory['Status.Name'].value == 'In Progress') {
                 userStory['Status.Name'].value = 'Active';
             }
+
             return userStory;
         }
     };
